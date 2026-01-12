@@ -31,16 +31,78 @@
             background-color: var(--bg-color);
             color: var(--text-primary);
             margin: 0;
-            padding: 60px 20px;
+            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
+        /* Gallery/Carousel Styling */
+        .gallery-container {
+            width: 100%;
+            overflow: hidden;
+            background: #000;
+            padding: 20px 0;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .gallery-track {
+            display: flex;
+            gap: 20px;
+            padding: 0 20px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* IE and Edge */
+        }
+
+        .gallery-track::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, Opera */
+        }
+
+        .gallery-item {
+            flex: 0 0 auto;
+            width: 400px;
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            border-color: var(--accent-primary);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-item .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 10px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
         header {
             text-align: center;
-            margin-bottom: 60px;
+            margin: 40px 0 60px 0;
             max-width: 800px;
+            padding: 0 20px;
         }
 
         h1 {
@@ -73,6 +135,7 @@
             gap: 25px;
             max-width: 1400px;
             width: 100%;
+            padding: 0 20px;
             margin-bottom: 60px;
         }
 
@@ -277,6 +340,48 @@
 </head>
 
 <body>
+    <!-- Image Gallery -->
+    <div class="gallery-container">
+        <div class="gallery-track">
+            <div class="gallery-item">
+                <img src="linux-mint-20.png" alt="Linux Mint Desktop">
+                <div class="caption">Linux Mint 22 - Desktop Cinnamon</div>
+            </div>
+            <div class="gallery-item">
+                <img src="Zorin_OS-18_021.jpg" alt="Zorin OS Desktop">
+                <div class="caption">Zorin OS 18 - Eleganza e Semplicità</div>
+            </div>
+            <div class="gallery-item">
+                <img src="fedora.jpg" alt="Fedora Desktop">
+                <div class="caption">Fedora 43 - Innovazione Pura</div>
+            </div>
+            <div class="gallery-item">
+                <img src="debian-9-mate-minimal.png" alt="Debian Desktop">
+                <div class="caption">Debian - La Stabilità Leggendaria</div>
+            </div>
+            <div class="gallery-item">
+                <img src="parrot.jpg" alt="Parrot OS">
+                <div class="caption">Parrot OS - Sicurezza e Privacy</div>
+            </div>
+            <div class="gallery-item">
+                <img src="lubuntu.jpg" alt="Lubuntu Desktop">
+                <div class="caption">Lubuntu - Leggerezza e Velocità</div>
+            </div>
+            <div class="gallery-item">
+                <img src="puppy_linux.jpg" alt="Puppy Linux">
+                <div class="caption">Puppy Linux - Per PC da Museo</div>
+            </div>
+            <div class="gallery-item">
+                <img src="tails.jpg" alt="Tails USB">
+                <div class="caption">Tails - Anonimato Totale</div>
+            </div>
+            <div class="gallery-item">
+                <img src="03 Cinnamon Menu.jpg" alt="Mint Menu">
+                <div class="caption">Dettagli del Menu Cinnamon</div>
+            </div>
+        </div>
+    </div>
+
     <header>
         <h1>Linux 2025/2026</h1>
         <p class="subtitle">La guida definitiva alle migliori distribuzioni per ogni esigenza: dai principianti agli
