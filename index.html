@@ -98,6 +98,52 @@
             text-align: center;
         }
 
+        /* Lightbox/Modal Styling */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            cursor: zoom-out;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox.active img {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            font-weight: 300;
+            user-select: none;
+        }
+
         header {
             text-align: center;
             margin: 40px 0 60px 0;
@@ -340,42 +386,48 @@
 </head>
 
 <body>
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged distibution image">
+    </div>
+
     <!-- Image Gallery -->
     <div class="gallery-container">
         <div class="gallery-track">
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openLightbox(this)">
                 <img src="linux-mint-20.png" alt="Linux Mint Desktop">
                 <div class="caption">Linux Mint 22 - Desktop Cinnamon</div>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openLightbox(this)">
                 <img src="Zorin_OS-18_021.jpg" alt="Zorin OS Desktop">
                 <div class="caption">Zorin OS 18 - Eleganza e Semplicità</div>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openLightbox(this)">
                 <img src="fedora.jpg" alt="Fedora Desktop">
                 <div class="caption">Fedora 43 - Innovazione Pura</div>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openLightbox(this)">
                 <img src="debian-9-mate-minimal.png" alt="Debian Desktop">
                 <div class="caption">Debian - La Stabilità Leggendaria</div>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openLightbox(this)">
                 <img src="parrot.jpg" alt="Parrot OS">
                 <div class="caption">Parrot OS - Sicurezza e Privacy</div>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openLightbox(this)">
                 <img src="lubuntu.jpg" alt="Lubuntu Desktop">
                 <div class="caption">Lubuntu - Leggerezza e Velocità</div>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openLightbox(this)">
                 <img src="puppy_linux.jpg" alt="Puppy Linux">
                 <div class="caption">Puppy Linux - Per PC da Museo</div>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openLightbox(this)">
                 <img src="tails.jpg" alt="Tails USB">
                 <div class="caption">Tails - Anonimato Totale</div>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openLightbox(this)">
                 <img src="03 Cinnamon Menu.jpg" alt="Mint Menu">
                 <div class="caption">Dettagli del Menu Cinnamon</div>
             </div>
@@ -542,6 +594,38 @@
             <a href="https://debian.org" class="btn">Sito Ufficiale</a>
         </div>
     </div>
+
+    <script>
+        function openLightbox(element) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const imgSrc = element.querySelector('img').src;
+
+            lightboxImg.src = imgSrc;
+            lightbox.classList.add('active');
+
+            // Prevent scrolling on body when lightbox is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        document.getElementById('lightbox').onclick = function (e) {
+            if (e.target.id === 'lightbox' || e.target.className === 'lightbox-close') {
+                this.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        };
+
+        // Close on Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                const lightbox = document.getElementById('lightbox');
+                if (lightbox.classList.contains('active')) {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
