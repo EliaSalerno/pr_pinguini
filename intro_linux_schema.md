@@ -38,7 +38,6 @@ Linux non è uno solo, è disponibile in diverse "versioni" chiamate **Distribuz
 - **[Ubuntu](https://ubuntu.com/download/desktop):** La più famosa, ottima per iniziare se vuoi supporto ovunque.
 - **[Linux Mint](https://linuxmint.com/download.php):** Perfetta per chi viene da Windows (interfaccia familiare).
 - **[Fedora](https://fedoraproject.org/workstation/download/):** Per chi vuole le ultime tecnologie e innovazioni.
-- **[Debian](https://www.debian.org/distrib/):** La "madre" di molte altre distro. La versione "Netinst" è famosissima per essere leggera e installabile senza interfaccia grafica (solo terminale).
 - **[Pop!_OS](https://pop.system76.com/):** Ottima per gaming e produttività, basata su Ubuntu.
 - **[Alpine Linux](https://alpinelinux.org/downloads/):** Per i super-minimalisti o per chi lavora con server e container (estremamente leggera).
 

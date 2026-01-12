@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
             --accent-mint: #87CF3E;
             --accent-fedora: #294172;
             --accent-alpine: #0D597F;
+            --accent-debian: #A81D33;
         }
 
         body {
@@ -39,7 +41,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
-            max-width: 1200px;
+            max-width: 1400px;
             width: 100%;
         }
 
@@ -51,6 +53,8 @@
             position: relative;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
@@ -67,31 +71,64 @@
             height: 4px;
         }
 
-        .ubuntu::before { background-color: var(--accent-ubuntu); }
-        .mint::before { background-color: var(--accent-mint); }
-        .fedora::before { background-color: var(--accent-fedora); }
-        .alpine::before { background-color: var(--accent-alpine); }
+        .ubuntu::before {
+            background-color: var(--accent-ubuntu);
+        }
+
+        .mint::before {
+            background-color: var(--accent-mint);
+        }
+
+        .fedora::before {
+            background-color: var(--accent-fedora);
+        }
+
+        .alpine::before {
+            background-color: var(--accent-alpine);
+        }
+
+        .debian::before {
+            background-color: var(--accent-debian);
+        }
+
+        .logo-container {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
 
         .card h2 {
-            margin-top: 0;
+            margin: 0 0 10px 0;
             font-size: 1.8rem;
         }
 
         .card p {
             color: var(--text-secondary);
             line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
         }
 
         .features {
             list-style: none;
             padding: 0;
-            margin: 20px 0;
+            margin: 0 0 20px 0;
         }
 
         .features li {
             margin-bottom: 10px;
             display: flex;
             align-items: center;
+            font-size: 0.95rem;
         }
 
         .features li::before {
@@ -103,29 +140,54 @@
 
         .btn {
             display: inline-block;
-            margin-top: 20px;
             padding: 10px 20px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             transition: background-color 0.2s;
+            text-align: center;
         }
 
-        .ubuntu .btn { background-color: var(--accent-ubuntu); color: white; }
-        .mint .btn { background-color: var(--accent-mint); color: #000; }
-        .fedora .btn { background-color: var(--accent-fedora); color: white; }
-        .alpine .btn { background-color: var(--accent-alpine); color: white; }
+        .ubuntu .btn {
+            background-color: var(--accent-ubuntu);
+            color: white;
+        }
+
+        .mint .btn {
+            background-color: var(--accent-mint);
+            color: #000;
+        }
+
+        .fedora .btn {
+            background-color: var(--accent-fedora);
+            color: white;
+        }
+
+        .alpine .btn {
+            background-color: var(--accent-alpine);
+            color: white;
+        }
+
+        .debian .btn {
+            background-color: var(--accent-debian);
+            color: white;
+        }
 
         .btn:hover {
             filter: brightness(1.1);
         }
     </style>
 </head>
+
 <body>
     <h1>Presentazione Distribuzioni Linux 2026</h1>
     <div class="container">
         <!-- Ubuntu -->
         <div class="card ubuntu">
+            <div class="logo-container">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/ubuntu.svg" alt="Ubuntu Logo"
+                    style="filter: invert(41%) sepia(87%) saturate(1518%) hue-rotate(345deg) brightness(97%) contrast(92%);">
+            </div>
             <h2>Ubuntu 26.04 LTS</h2>
             <p>"Resolute Raccoon" - La scelta standard per eccellenza.</p>
             <ul class="features">
@@ -139,6 +201,10 @@
 
         <!-- Linux Mint -->
         <div class="card mint">
+            <div class="logo-container">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linuxmint.svg" alt="Linux Mint Logo"
+                    style="filter: invert(88%) sepia(17%) saturate(1478%) hue-rotate(44deg) brightness(91%) contrast(89%);">
+            </div>
             <h2>Linux Mint 22.3</h2>
             <p>"Zena" - Eleganza e familiarità (Desktop Cinnamon).</p>
             <ul class="features">
@@ -152,6 +218,10 @@
 
         <!-- Fedora -->
         <div class="card fedora">
+            <div class="logo-container">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/fedora.svg" alt="Fedora Logo"
+                    style="filter: invert(21%) sepia(30%) saturate(1637%) hue-rotate(193deg) brightness(93%) contrast(95%);">
+            </div>
             <h2>Fedora 43</h2>
             <p>Il laboratorio dell'innovazione Open Source.</p>
             <ul class="features">
@@ -163,10 +233,31 @@
             <a href="https://fedoraproject.org" class="btn">Sito Ufficiale</a>
         </div>
 
+        <!-- Debian -->
+        <div class="card debian">
+            <div class="logo-container">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/debian.svg" alt="Debian Logo"
+                    style="filter: invert(14%) sepia(97%) saturate(3048%) hue-rotate(338deg) brightness(88%) contrast(98%);">
+            </div>
+            <h2>Debian (Minimal)</h2>
+            <p>La "Madre" di Linux: solida come il granito e ultra-leggera.</p>
+            <ul class="features">
+                <li>Installazione "Netinst" minimalista</li>
+                <li>Nessuna interfaccia grafica (solo terminale)</li>
+                <li>Consumo RAM bassissimo (pochi MB)</li>
+                <li>Massima stabilità e sicurezza</li>
+            </ul>
+            <a href="https://www.debian.org" class="btn">Sito Ufficiale</a>
+        </div>
+
         <!-- Alpine Linux -->
         <div class="card alpine">
+            <div class="logo-container">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/alpinelinux.svg" alt="Alpine Linux Logo"
+                    style="filter: invert(24%) sepia(21%) saturate(3665%) hue-rotate(162deg) brightness(95%) contrast(90%);">
+            </div>
             <h2>Alpine Linux 3.23</h2>
-            <p>Sicurezza e minimalismo estremo.</p>
+            <p>Sicurezza e minimalismo estremo per esperti.</p>
             <ul class="features">
                 <li>Leggerissimo (solo pochi MB)</li>
                 <li>Basato su musl libc e busybox</li>
@@ -177,4 +268,5 @@
         </div>
     </div>
 </body>
+
 </html>
