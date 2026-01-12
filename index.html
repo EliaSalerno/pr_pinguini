@@ -4,62 +4,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linux Distro Presentations</title>
+    <title>Le Migliori Distribuzioni Linux 2025/2026</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
         :root {
-            --bg-color: #0f172a;
+            --bg-color: #020617;
             --card-bg: #1e293b;
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
+            --accent-primary: #38bdf8;
             --accent-ubuntu: #E95420;
             --accent-mint: #87CF3E;
             --accent-fedora: #294172;
+            --accent-zorin: #0081FF;
+            --accent-debian: #D70A53;
+            --accent-tails: #56347C;
+            --accent-parrot: #01ecfc;
+            --accent-qubes: #3874D8;
             --accent-alpine: #0D597F;
-            --accent-debian: #A81D33;
+            --accent-lubuntu: #0056D2;
         }
 
         body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-family: 'Outfit', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-primary);
             margin: 0;
-            padding: 40px 20px;
+            padding: 60px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 800px;
+        }
+
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            background: linear-gradient(90deg, #38bdf8, #818cf8);
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        p.subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+
+        .category-title {
+            width: 100%;
+            max-width: 1400px;
+            margin: 40px 0 20px 0;
+            font-size: 1.8rem;
+            border-left: 4px solid var(--accent-primary);
+            padding-left: 15px;
+            color: var(--accent-primary);
         }
 
         .container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
             max-width: 1400px;
             width: 100%;
+            margin-bottom: 60px;
         }
 
         .card {
             background-color: var(--card-bg);
-            border-radius: 16px;
+            border-radius: 20px;
             padding: 30px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             display: flex;
             flex-direction: column;
+            backdrop-filter: blur(10px);
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6);
+            border-color: rgba(255, 255, 255, 0.15);
         }
 
         .card::before {
@@ -68,36 +101,64 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 5px;
         }
 
+        /* Accent Colors */
         .ubuntu::before {
-            background-color: var(--accent-ubuntu);
+            background: var(--accent-ubuntu);
         }
 
         .mint::before {
-            background-color: var(--accent-mint);
+            background: var(--accent-mint);
         }
 
         .fedora::before {
-            background-color: var(--accent-fedora);
+            background: var(--accent-fedora);
         }
 
-        .alpine::before {
-            background-color: var(--accent-alpine);
+        .zorin::before {
+            background: var(--accent-zorin);
         }
 
         .debian::before {
-            background-color: var(--accent-debian);
+            background: var(--accent-debian);
+        }
+
+        .tails::before {
+            background: var(--accent-tails);
+        }
+
+        .parrot::before {
+            background: var(--accent-parrot);
+        }
+
+        .qubes::before {
+            background: var(--accent-qubes);
+        }
+
+        .alpine::before {
+            background: var(--accent-alpine);
+        }
+
+        .lubuntu::before {
+            background: var(--accent-lubuntu);
+        }
+
+        .lightweight::before {
+            background: #94a3b8;
         }
 
         .logo-container {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 20px;
+            width: 60px;
+            height: 60px;
+            margin-bottom: 25px;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 10px;
         }
 
         .logo-container img {
@@ -107,80 +168,157 @@
         }
 
         .card h2 {
-            margin: 0 0 10px 0;
-            font-size: 1.8rem;
+            margin: 0 0 12px 0;
+            font-size: 1.6rem;
+            font-weight: 600;
         }
 
         .card p {
             color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 20px;
+            line-height: 1.7;
+            margin-bottom: 25px;
             flex-grow: 1;
+            font-size: 0.95rem;
         }
 
         .features {
             list-style: none;
             padding: 0;
-            margin: 0 0 20px 0;
+            margin: 0 0 25px 0;
         }
 
         .features li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .features li::before {
-            content: '✓';
-            margin-right: 10px;
-            color: #10b981;
+            content: '✦';
+            margin-right: 12px;
+            color: var(--accent-primary);
             font-weight: bold;
         }
 
         .btn {
             display: inline-block;
-            padding: 10px 20px;
-            border-radius: 8px;
+            padding: 12px 24px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
-            transition: background-color 0.2s;
+            transition: all 0.3s ease;
             text-align: center;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .ubuntu .btn {
-            background-color: var(--accent-ubuntu);
+            background: var(--accent-ubuntu);
             color: white;
         }
 
         .mint .btn {
-            background-color: var(--accent-mint);
-            color: #000;
+            background: var(--accent-mint);
+            color: #020617;
         }
 
         .fedora .btn {
-            background-color: var(--accent-fedora);
+            background: var(--accent-fedora);
             color: white;
         }
 
-        .alpine .btn {
-            background-color: var(--accent-alpine);
+        .zorin .btn {
+            background: var(--accent-zorin);
             color: white;
         }
 
         .debian .btn {
-            background-color: var(--accent-debian);
+            background: var(--accent-debian);
+            color: white;
+        }
+
+        .tails .btn {
+            background: var(--accent-tails);
+            color: white;
+        }
+
+        .parrot .btn {
+            background: var(--accent-parrot);
+            color: #020617;
+        }
+
+        .qubes .btn {
+            background: var(--accent-qubes);
+            color: white;
+        }
+
+        .alpine .btn {
+            background: var(--accent-alpine);
+            color: white;
+        }
+
+        .lubuntu .btn {
+            background: var(--accent-lubuntu);
+            color: white;
+        }
+
+        .lightweight .btn {
+            background: #475569;
             color: white;
         }
 
         .btn:hover {
-            filter: brightness(1.1);
+            filter: brightness(1.2) saturate(1.1);
+            box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.4);
         }
     </style>
 </head>
 
 <body>
-    <h1>Presentazione Distribuzioni Linux 2026</h1>
+    <header>
+        <h1>Linux 2025/2026</h1>
+        <p class="subtitle">La guida definitiva alle migliori distribuzioni per ogni esigenza: dai principianti agli
+            esperti in sicurezza.</p>
+    </header>
+
+    <div class="category-title">Principianti e Transizione</div>
+    <div class="container">
+        <!-- Linux Mint -->
+        <div class="card mint">
+            <div class="logo-container">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linuxmint.svg" alt="Linux Mint Logo"
+                    style="filter: invert(88%) sepia(17%) saturate(1478%) hue-rotate(44deg) brightness(91%) contrast(89%);">
+            </div>
+            <h2>Linux Mint 22</h2>
+            <p>La distribuzione più consigliata per chi cerca stabilità e una interfaccia familiare "stile Windows".</p>
+            <ul class="features">
+                <li>Ambiente Cinnamon 6.6 fluido</li>
+                <li>Supporto Wayland ottimizzato</li>
+                <li>Gestione software semplificata</li>
+            </ul>
+            <a href="https://linuxmint.com" class="btn">Sito Ufficiale</a>
+        </div>
+
+        <!-- Zorin OS -->
+        <div class="card zorin">
+            <div class="logo-container">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/zorin.svg" alt="Zorin Logo"
+                    style="filter: invert(34%) sepia(93%) saturate(3015%) hue-rotate(198deg) brightness(101%) contrast(101%);">
+            </div>
+            <h2>Zorin OS 18</h2>
+            <p>Estetica premium progettata per somigliare a Windows o macOS, facilitando il passaggio.</p>
+            <ul class="features">
+                <li>Design curato e moderno</li>
+                <li>Supporto app Windows tramite Wine</li>
+                <li>Perfetta per il desktop quotidiano</li>
+            </ul>
+            <a href="https://zorin.com" class="btn">Sito Ufficiale</a>
+        </div>
+    </div>
+
+    <div class="category-title">Lavoro, Gaming e Versatilità</div>
     <div class="container">
         <!-- Ubuntu -->
         <div class="card ubuntu">
@@ -188,32 +326,14 @@
                 <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/ubuntu.svg" alt="Ubuntu Logo"
                     style="filter: invert(41%) sepia(87%) saturate(1518%) hue-rotate(345deg) brightness(97%) contrast(92%);">
             </div>
-            <h2>Ubuntu 26.04 LTS</h2>
-            <p>"Resolute Raccoon" - La scelta standard per eccellenza.</p>
+            <h2>Ubuntu 25.04</h2>
+            <p>Lo standard mondiale, ora ottimizzato per gaming con Dynamic Boost e GPU moderne.</p>
             <ul class="features">
-                <li>GNOME 50: Nuova interfaccia fluida</li>
-                <li>Download "Showtime" per i media</li>
-                <li>Supporto Long Term fino a 10 anni</li>
-                <li>Wayland come standard grafico</li>
+                <li>GNOME 50 con nuove interfacce</li>
+                <li>Pioneer nel supporto hardware</li>
+                <li>Massima compatibilità gaming</li>
             </ul>
             <a href="https://ubuntu.com" class="btn">Sito Ufficiale</a>
-        </div>
-
-        <!-- Linux Mint -->
-        <div class="card mint">
-            <div class="logo-container">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linuxmint.svg" alt="Linux Mint Logo"
-                    style="filter: invert(88%) sepia(17%) saturate(1478%) hue-rotate(44deg) brightness(91%) contrast(89%);">
-            </div>
-            <h2>Linux Mint 22.3</h2>
-            <p>"Zena" - Eleganza e familiarità (Desktop Cinnamon).</p>
-            <ul class="features">
-                <li>Cinnamon 6.6: Menu app riprogettato</li>
-                <li>Supporto Wayland migliorato</li>
-                <li>TimeShift integrato per backup facili</li>
-                <li>Supporto fino ad Aprile 2029</li>
-            </ul>
-            <a href="https://linuxmint.com" class="btn">Sito Ufficiale</a>
         </div>
 
         <!-- Fedora -->
@@ -223,14 +343,82 @@
                     style="filter: invert(21%) sepia(30%) saturate(1637%) hue-rotate(193deg) brightness(93%) contrast(95%);">
             </div>
             <h2>Fedora 43</h2>
-            <p>Il laboratorio dell'innovazione Open Source.</p>
+            <p>Il laboratorio dell'innovazione: software sempre aggiornato per sviluppatori e smanettoni.</p>
             <ul class="features">
-                <li>Tecnologie all'avanguardia (Kernel 6.17+)</li>
-                <li>GNOME 49: Esperienza "pure" e moderna</li>
-                <li>Package manager RPM 6.0 ultra sicuro</li>
-                <li>Boot velocissimo con compressione ZSTD</li>
+                <li>Tecnologie Open Source pure</li>
+                <li>Kernel sempre all'ultima versione</li>
+                <li>Ottimo per produttività tech</li>
             </ul>
             <a href="https://fedoraproject.org" class="btn">Sito Ufficiale</a>
+        </div>
+    </div>
+
+    <div class="category-title">Leggerezza e Hardware Datato</div>
+    <div class="container">
+        <!-- Lubuntu -->
+        <div class="card lubuntu">
+            <div class="logo-container">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/lubuntu.svg" alt="Lubuntu Logo"
+                    style="filter: invert(24%) sepia(91%) saturate(3143%) hue-rotate(204deg) brightness(92%) contrast(101%);">
+            </div>
+            <h2>Lubuntu</h2>
+            <p>Versione ultra-leggera di Ubuntu che consuma pochissima RAM senza sacrificare il supporto.</p>
+            <ul class="features">
+                <li>Basata su LXQt ultra-leggero</li>
+                <li>Ideale per PC dal 2010 in poi</li>
+                <li>Stabile e supportata</li>
+            </ul>
+            <a href="https://lubuntu.me" class="btn">Sito Ufficiale</a>
+        </div>
+
+        <!-- Puppy Linux -->
+        <div class="card lightweight">
+            <div class="logo-container">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linux.svg" alt="Linux Logo">
+            </div>
+            <h2>Puppy Linux</h2>
+            <p>Incredibilmente veloce: gira interamente nella memoria RAM, caricando tutto all'avvio.</p>
+            <ul class="features">
+                <li>Riduce a pochi MB il peso del sistema</li>
+                <li>Resuscita computer "da museo"</li>
+                <li>Include tutto l'essenziale per il web</li>
+            </ul>
+            <a href="https://puppylinux.com" class="btn">Sito Ufficiale</a>
+        </div>
+    </div>
+
+    <div class="category-title">Sicurezza, Privacy ed Esperti</div>
+    <div class="container">
+        <!-- Tails -->
+        <div class="card tails">
+            <div class="logo-container">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tails.svg" alt="Tails Logo"
+                    style="filter: invert(26%) sepia(34%) saturate(2462%) hue-rotate(238deg) brightness(91%) contrast(93%);">
+            </div>
+            <h2>Tails</h2>
+            <p>Il sistema dell'anonimato: non lascia tracce sul PC, tutto il traffico passa per la rete Tor.</p>
+            <ul class="features">
+                <li>Amnesic (dimentica tutto allo spegnimento)</li>
+                <li>Sicurezza anti-sorveglianza</li>
+                <li>Si avvia interamente da USB</li>
+            </ul>
+            <a href="https://tails.net" class="btn">Sito Ufficiale</a>
+        </div>
+
+        <!-- Parrot OS -->
+        <div class="card parrot">
+            <div class="logo-container">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/parrotos.svg" alt="Parrot Logo"
+                    style="filter: invert(80%) sepia(35%) saturate(3990%) hue-rotate(143deg) brightness(102%) contrast(101%);">
+            </div>
+            <h2>Parrot OS</h2>
+            <p>Pensata per esperti di sicurezza informatica e privacy, con tool pre-installati.</p>
+            <ul class="features">
+                <li>Cloud-ready e leggera</li>
+                <li>Ambiente MATE o KDE</li>
+                <li>Massimo controllo sulle reti</li>
+            </ul>
+            <a href="https://parrotsec.org" class="btn">Sito Ufficiale</a>
         </div>
 
         <!-- Debian -->
@@ -240,31 +428,13 @@
                     style="filter: invert(14%) sepia(97%) saturate(3048%) hue-rotate(338deg) brightness(88%) contrast(98%);">
             </div>
             <h2>Debian (Minimal)</h2>
-            <p>La "Madre" di Linux: solida come il granito e ultra-leggera.</p>
+            <p>La "Madre" di Linux: solida come il granito, ideale per server o esperti del terminale.</p>
             <ul class="features">
-                <li>Installazione "Netinst" minimalista</li>
-                <li>Nessuna interfaccia grafica (solo terminale)</li>
-                <li>Consumo RAM bassissimo (pochi MB)</li>
-                <li>Massima stabilità e sicurezza</li>
+                <li>Stabilità imbattibile</li>
+                <li>Versione minimale "Netinst"</li>
+                <li>Efficienza senza interfaccia grafica</li>
             </ul>
-            <a href="https://www.debian.org" class="btn">Sito Ufficiale</a>
-        </div>
-
-        <!-- Alpine Linux -->
-        <div class="card alpine">
-            <div class="logo-container">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/alpinelinux.svg" alt="Alpine Linux Logo"
-                    style="filter: invert(24%) sepia(21%) saturate(3665%) hue-rotate(162deg) brightness(95%) contrast(90%);">
-            </div>
-            <h2>Alpine Linux 3.23</h2>
-            <p>Sicurezza e minimalismo estremo per esperti.</p>
-            <ul class="features">
-                <li>Leggerissimo (solo pochi MB)</li>
-                <li>Basato su musl libc e busybox</li>
-                <li>Ideale per server, Docker e vecchi PC</li>
-                <li>`apk` package manager velocissimo</li>
-            </ul>
-            <a href="https://alpinelinux.org" class="btn">Sito Ufficiale</a>
+            <a href="https://debian.org" class="btn">Sito Ufficiale</a>
         </div>
     </div>
 </body>
