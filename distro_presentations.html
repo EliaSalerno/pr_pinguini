@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Distro Presentations</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-ubuntu: #E95420;
+            --accent-mint: #87CF3E;
+            --accent-fedora: #294172;
+            --accent-alpine: #0D597F;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            background: linear-gradient(90deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+        }
+
+        .ubuntu::before { background-color: var(--accent-ubuntu); }
+        .mint::before { background-color: var(--accent-mint); }
+        .fedora::before { background-color: var(--accent-fedora); }
+        .alpine::before { background-color: var(--accent-alpine); }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .features {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .features li::before {
+            content: '✓';
+            margin-right: 10px;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .ubuntu .btn { background-color: var(--accent-ubuntu); color: white; }
+        .mint .btn { background-color: var(--accent-mint); color: #000; }
+        .fedora .btn { background-color: var(--accent-fedora); color: white; }
+        .alpine .btn { background-color: var(--accent-alpine); color: white; }
+
+        .btn:hover {
+            filter: brightness(1.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Presentazione Distribuzioni Linux 2026</h1>
+    <div class="container">
+        <!-- Ubuntu -->
+        <div class="card ubuntu">
+            <h2>Ubuntu 26.04 LTS</h2>
+            <p>"Resolute Raccoon" - La scelta standard per eccellenza.</p>
+            <ul class="features">
+                <li>GNOME 50: Nuova interfaccia fluida</li>
+                <li>Download "Showtime" per i media</li>
+                <li>Supporto Long Term fino a 10 anni</li>
+                <li>Wayland come standard grafico</li>
+            </ul>
+            <a href="https://ubuntu.com" class="btn">Sito Ufficiale</a>
+        </div>
+
+        <!-- Linux Mint -->
+        <div class="card mint">
+            <h2>Linux Mint 22.3</h2>
+            <p>"Zena" - Eleganza e familiarità (Desktop Cinnamon).</p>
+            <ul class="features">
+                <li>Cinnamon 6.6: Menu app riprogettato</li>
+                <li>Supporto Wayland migliorato</li>
+                <li>TimeShift integrato per backup facili</li>
+                <li>Supporto fino ad Aprile 2029</li>
+            </ul>
+            <a href="https://linuxmint.com" class="btn">Sito Ufficiale</a>
+        </div>
+
+        <!-- Fedora -->
+        <div class="card fedora">
+            <h2>Fedora 43</h2>
+            <p>Il laboratorio dell'innovazione Open Source.</p>
+            <ul class="features">
+                <li>Tecnologie all'avanguardia (Kernel 6.17+)</li>
+                <li>GNOME 49: Esperienza "pure" e moderna</li>
+                <li>Package manager RPM 6.0 ultra sicuro</li>
+                <li>Boot velocissimo con compressione ZSTD</li>
+            </ul>
+            <a href="https://fedoraproject.org" class="btn">Sito Ufficiale</a>
+        </div>
+
+        <!-- Alpine Linux -->
+        <div class="card alpine">
+            <h2>Alpine Linux 3.23</h2>
+            <p>Sicurezza e minimalismo estremo.</p>
+            <ul class="features">
+                <li>Leggerissimo (solo pochi MB)</li>
+                <li>Basato su musl libc e busybox</li>
+                <li>Ideale per server, Docker e vecchi PC</li>
+                <li>`apk` package manager velocissimo</li>
+            </ul>
+            <a href="https://alpinelinux.org" class="btn">Sito Ufficiale</a>
+        </div>
+    </div>
+</body>
+</html>
