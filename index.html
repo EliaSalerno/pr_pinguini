@@ -9,58 +9,43 @@
 </head>
 
 <body>
-    <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox">
-        <span class="lightbox-close">&times;</span>
-        <img id="lightbox-img" src="" alt="Enlarged distibution image">
-    </div>
 
-    <!-- Image Gallery -->
-    <div class="gallery-container">
-        <div class="gallery-track">
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="linux-mint-20.png" alt="Linux Mint Desktop">
-                <div class="caption">Linux Mint 22 - Desktop Cinnamon</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="Zorin_OS-18_021.jpg" alt="Zorin OS Desktop">
-                <div class="caption">Zorin OS 18 - Eleganza e Semplicità</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="fedora.jpg" alt="Fedora Desktop">
-                <div class="caption">Fedora 43 - Innovazione Pura</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="debian-9-mate-minimal.png" alt="Debian Desktop">
-                <div class="caption">Debian - La Stabilità Leggendaria</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="parrot.jpg" alt="Parrot OS">
-                <div class="caption">Parrot OS - Sicurezza e Privacy</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="lubuntu.jpg" alt="Lubuntu Desktop">
-                <div class="caption">Lubuntu - Leggerezza e Velocità</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="puppy_linux.jpg" alt="Puppy Linux">
-                <div class="caption">Puppy Linux - Per PC da Museo</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="tails.jpg" alt="Tails USB">
-                <div class="caption">Tails - Anonimato Totale</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="03 Cinnamon Menu.jpg" alt="Mint Menu">
-                <div class="caption">Dettagli del Menu Cinnamon</div>
-            </div>
-        </div>
-    </div>
 
     <header>
-        <h1>Linux 2025/2026</h1>
+        <h1>Li<a href="pinguini.html" class="hidden-egg">n</a>ux 2025/2026</h1>
         <p class="subtitle">La guida definitiva alle migliori distribuzioni per ogni esigenza: dai principianti agli
             esperti in sicurezza.</p>
+
+        <div class="deep-dive-links">
+            <a href="os_concepts.html" class="dive-card">
+                <span class="dive-icon">🧠</span>
+                <div class="dive-text">
+                    <strong>Concetti Base OS</strong>
+                    <span>La metafora del ristorante</span>
+                </div>
+            </a>
+            <a href="linux_world.html" class="dive-card">
+                <span class="dive-icon">🐧</span>
+                <div class="dive-text">
+                    <strong>Mondo Linux</strong>
+                    <span>Filosofia e libertà</span>
+                </div>
+            </a>
+            <a href="Lightbox/gallery.html" class="dive-card">
+                <span class="dive-icon">🖼️</span>
+                <div class="dive-text">
+                    <strong>Galleria Style</strong>
+                    <span>Template Masonry</span>
+                </div>
+            </a>
+            <a href="Guida/installazione.html" class="dive-card">
+                <span class="dive-icon">🛠️</span>
+                <div class="dive-text">
+                    <strong>Guida Installazione</strong>
+                    <span>Step-by-step</span>
+                </div>
+            </a>
+        </div>
     </header>
 
     <div class="category-title">Principianti</div>
@@ -218,37 +203,6 @@
         </div>
     </div>
 
-    <script>
-        function openLightbox(element) {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            const imgSrc = element.querySelector('img').src;
-
-            lightboxImg.src = imgSrc;
-            lightbox.classList.add('active');
-
-            // Prevent scrolling on body when lightbox is open
-            document.body.style.overflow = 'hidden';
-        }
-
-        document.getElementById('lightbox').onclick = function (e) {
-            if (e.target.id === 'lightbox' || e.target.className === 'lightbox-close') {
-                this.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-        };
-
-        // Close on Escape key
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') {
-                const lightbox = document.getElementById('lightbox');
-                if (lightbox.classList.contains('active')) {
-                    lightbox.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                }
-            }
-        });
-    </script>
 </body>
 
 </html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masonry Gallery - Progetto Pinguini</title>
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="../style.css"> <!-- Reusing some base variables -->
+</head>
+
+<body>
+    <div class="nav-header">
+        <a href="../index.html" class="back-link">← Ritorna alla Home</a>
+        <h1>Galleria Esplorativa</h1>
+    </div>
+
+    <div class="masonry-container">
+        <!-- Mint Gallery Items -->
+        <div class="masonry-item" onclick="openLightbox(this)">
+            <img src="../linux-mint-20.png" alt="Linux Mint">
+            <div class="overlay">
+                <h3>Linux Mint</h3>
+                <p>Cinnamon Desktop</p>
+            </div>
+        </div>
+
+        <div class="masonry-item" onclick="openLightbox(this)">
+            <img src="../Zorin_OS-18_021.jpg" alt="Zorin OS">
+            <div class="overlay">
+                <h3>Zorin OS</h3>
+                <p>Premium Design</p>
+            </div>
+        </div>
+
+        <div class="masonry-item" onclick="openLightbox(this)">
+            <img src="../fedora.jpg" alt="Fedora">
+            <div class="overlay">
+                <h3>Fedora</h3>
+                <p>Bleeding Edge</p>
+            </div>
+        </div>
+
+        <!-- Adding different height simulated items if possible or just more images -->
+        <div class="masonry-item" onclick="openLightbox(this)">
+            <img src="../debian-9-mate-minimal.png" alt="Debian">
+            <div class="overlay">
+                <h3>Debian</h3>
+                <p>Stability</p>
+            </div>
+        </div>
+
+        <div class="masonry-item" onclick="openLightbox(this)">
+            <img src="../parrot.jpg" alt="Parrot">
+            <div class="overlay">
+                <h3>Parrot OS</h3>
+                <p>Security</p>
+            </div>
+        </div>
+
+        <div class="masonry-item" onclick="openLightbox(this)">
+            <img src="../lubuntu.jpg" alt="Lubuntu">
+            <div class="overlay">
+                <h3>Lubuntu</h3>
+                <p>Lightweight</p>
+            </div>
+        </div>
+
+        <div class="masonry-item" onclick="openLightbox(this)">
+            <img src="../puppy_linux.jpg" alt="Puppy">
+            <div class="overlay">
+                <h3>Puppy Linux</h3>
+                <p>Miniature</p>
+            </div>
+        </div>
+
+        <div class="masonry-item" onclick="openLightbox(this)">
+            <img src="../tails.jpg" alt="Tails">
+            <div class="overlay">
+                <h3>Tails</h3>
+                <p>Privacy</p>
+            </div>
+        </div>
+
+        <div class="masonry-item" onclick="openLightbox(this)">
+            <img src="../03 Cinnamon Menu.jpg" alt="Cinnamon Menu">
+            <div class="overlay">
+                <h3>Cinnamon Menu</h3>
+                <p>Detail View</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Multi-stage Lightbox -->
+    <div id="gallery-lightbox" class="gallery-lightbox">
+        <div class="lightbox-container">
+            <span class="close-btn">&times;</span>
+            <div class="lightbox-content">
+                <img id="lightbox-main-img" src="" alt="">
+                <div class="lightbox-info">
+                    <h2 id="lightbox-title">Title</h2>
+                    <p id="lightbox-desc">Description</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openLightbox(element) {
+            const lightbox = document.getElementById('gallery-lightbox');
+            const mainImg = document.getElementById('lightbox-main-img');
+            const title = document.getElementById('lightbox-title');
+            const desc = document.getElementById('lightbox-desc');
+
+            const itemImg = element.querySelector('img');
+            const itemTitle = element.querySelector('h3');
+            const itemDesc = element.querySelector('p');
+
+            mainImg.src = itemImg.src;
+            title.textContent = itemTitle.textContent;
+            desc.textContent = itemDesc.textContent;
+
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        document.getElementById('gallery-lightbox').onclick = function (e) {
+            if (e.target.id === 'gallery-lightbox' || e.target.className === 'close-btn' || e.target.className === 'lightbox-container') {
+                this.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        };
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                const lightbox = document.getElementById('gallery-lightbox');
+                if (lightbox.classList.contains('active')) {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -153,8 +153,70 @@ h1 {
     font-weight: 700;
 }
 
+.hidden-egg {
+    text-decoration: none;
+    cursor: default;
+    color: inherit;
+    -webkit-text-fill-color: transparent;
+    /* Keep it transparent for the gradient h1 */
+}
+
+.hidden-egg:hover {
+    cursor: pointer;
+}
+
 p.subtitle {
     font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+}
+
+.deep-dive-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.dive-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.dive-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+    border-color: var(--accent-primary);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dive-icon {
+    font-size: 2rem;
+}
+
+.dive-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.dive-text strong {
+    font-size: 1.1rem;
+    color: var(--accent-primary);
+}
+
+.dive-text span {
+    font-size: 0.85rem;
     color: var(--text-secondary);
 }
 
