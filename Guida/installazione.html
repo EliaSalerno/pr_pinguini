@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guida all'installazione - Progetto Pinguini</title>
+    <link rel="stylesheet" href="installazione.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="nav-header">
+        <a href="../index.html" class="back-link" style="padding: 20px; display: inline-block;">← Torna alla Home</a>
+    </div>
+
+    <div class="stepper-container">
+        <header class="guide-header" style="text-align: center; margin-bottom: 40px;">
+            <h1 style="font-size: 3rem; margin-bottom: 10px;">Installazione Linux</h1>
+            <p style="color: var(--text-secondary);">Segui questi passaggi per trasformare il tuo computer.</p>
+        </header>
+
+        <!-- Progress Indicator -->
+        <div class="progress-bar">
+            <div class="step-blob active" data-step="1">1</div>
+            <div class="step-line"></div>
+            <div class="step-blob" data-step="2">2</div>
+            <div class="step-line"></div>
+            <div class="step-blob" data-step="3">3</div>
+            <div class="step-line"></div>
+            <div class="step-blob" data-step="4">4</div>
+        </div>
+
+        <!-- Step Content Wrapper -->
+        <div class="steps-wrapper">
+            <div class="step-content active" id="step-1">
+                <h2>1. Preparazione</h2>
+                <p>Prima di iniziare, assicurati di avere tutto il necessario:</p>
+                <ul class="check-list">
+                    <li>Una chiavetta USB da almeno 8GB (vuota).</li>
+                    <li>Una connessione internet stabile.</li>
+                    <li>Backup dei tuoi dati importanti (per sicurezza).</li>
+                </ul>
+                <div class="info-box tip">
+                    <strong>💡 Consiglio:</strong> Scegli una distribuzione come Linux Mint se è la tua prima volta.
+                </div>
+            </div>
+
+            <div class="step-content" id="step-2">
+                <h2>2. Creazione USB Live</h2>
+                <p>Dobbiamo "scrivere" il sistema operativo sulla chiavetta USB.</p>
+                <ol>
+                    <li>Scarica la <strong>ISO</strong> della distribuzione scelta.</li>
+                    <li>Scarica un tool come <a href="https://etcher.balena.io/" target="_blank">BalenaEtcher</a> o
+                        Rufus.</li>
+                    <li>Seleziona la ISO, seleziona la USB e clicca su <strong>Flash!</strong></li>
+                </ol>
+                <div class="info-box warning">
+                    <strong>⚠️ Attenzione:</strong> Questa operazione cancellerà tutti i file presenti sulla chiavetta
+                    USB.
+                </div>
+            </div>
+
+            <div class="step-content" id="step-3">
+                <h2>3. Avvio (Boot)</h2>
+                <p>Inserisci la chiavetta nel computer spento e accendilo premendo ripetutamente il tasto del
+                    <strong>Boot Menu</strong>.</p>
+                <p>I tasti comuni sono: <code>F12</code>, <code>F11</code>, <code>F10</code>, <code>ESC</code> o
+                    <code>Delete</code>.</p>
+                <div class="terminal-block">
+                    <span class="terminal-header">BIOS/UEFI Configuration</span>
+                    <div class="terminal-body">
+                        &gt; Secure Boot: [Disabled]<br>
+                        &gt; Boot Priority: [USB Stick First]
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-content" id="step-4">
+                <h2>4. Installazione</h2>
+                <p>Una volta avviato Linux dalla chiavetta, vedrai un'icona chiamata "Install Linux". Cliccala!</p>
+                <p>Segui la procedura guidata:</p>
+                <ul class="check-list">
+                    <li>Scegli la lingua (Italiano).</li>
+                    <li>Scegli se affiancare Linux a Windows o cancellare tutto.</li>
+                    <li>Crea il tuo utente e password.</li>
+                </ul>
+                <div class="info-box success">
+                    <strong>🎉 Fatto!</strong> Riavvia il computer e benvenuto nel mondo Linux.
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="stepper-nav">
+            <button id="prevBtn" class="btn secondary" disabled>Indietro</button>
+            <button id="nextBtn" class="btn">Avanti</button>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 4;
+
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const stepContents = document.querySelectorAll('.step-content');
+        const stepBlobs = document.querySelectorAll('.step-blob');
+        const stepLines = document.querySelectorAll('.step-line');
+
+        function updateUI() {
+            stepContents.forEach(content => content.classList.remove('active'));
+            document.getElementById(`step-${currentStep}`).classList.add('active');
+
+            stepBlobs.forEach((blob, index) => {
+                if (index < currentStep) {
+                    blob.classList.add('active');
+                } else {
+                    blob.classList.remove('active');
+                }
+            });
+
+            stepLines.forEach((line, index) => {
+                if (index < currentStep - 1) {
+                    line.classList.add('active');
+                } else {
+                    line.classList.remove('active');
+                }
+            });
+
+            prevBtn.disabled = currentStep === 1;
+            if (currentStep === totalSteps) {
+                nextBtn.textContent = 'Finito';
+            } else {
+                nextBtn.textContent = 'Avanti';
+            }
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentStep < totalSteps) {
+                currentStep++;
+                updateUI();
+            } else {
+                window.location.href = '../index.html';
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentStep > 1) {
+                currentStep--;
+                updateUI();
+            }
+        });
+    </script>
+</body>
+
+</html>
