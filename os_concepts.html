@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concetti Base OS - Progetto Pinguini</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .concept-section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .metaphor-card {
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            transition: transform 0.3s ease;
+        }
+
+        .metaphor-card:hover {
+            transform: scale(1.02);
+        }
+
+        .metaphor-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .metaphor-icon {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .metaphor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .role-card {
+            background: rgba(15, 23, 42, 0.5);
+            padding: 25px;
+            border-radius: 16px;
+            border-left: 4px solid var(--accent-primary);
+        }
+
+        .role-card h3 {
+            margin-top: 0;
+            color: var(--accent-primary);
+        }
+
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 40px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .back-home:hover {
+            color: var(--accent-primary);
+        }
+
+        .navigation-top {
+            width: 100%;
+            max-width: 1400px;
+            padding: 20px;
+            display: flex;
+            justify-content: flex-start;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navigation-top">
+        <a href="index.html" class="back-home">← Torna alla Home</a>
+    </div>
+
+    <header>
+        <h1>Il "Cervello" del Computer</h1>
+        <p class="subtitle">Capire il Sistema Operativo non è mai stato così semplice (e saporito).</p>
+    </header>
+
+    <div class="concept-section">
+        <div class="metaphor-card">
+            <div class="metaphor-header">
+                <span class="metaphor-icon">🍽️</span>
+                <h2>La Metafora del Ristorante</h2>
+            </div>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 30px;">
+                Immagina che il tuo computer sia un grande ristorante. Perché tutto funzioni perfettamente, non basta avere fornelli e padelle, serve qualcuno che coordini tutto.
+            </p>
+
+            <div class="metaphor-grid">
+                <div class="role-card">
+                    <h3>🍳 L'Hardware</h3>
+                    <p><strong>(La Cucina)</strong><br>I fornelli, il forno, il frigorifero. Sono i "muscoli": i componenti fisici che fanno il lavoro pesante, ma non sanno cosa cucinare da soli.</p>
+                </div>
+                <div class="role-card">
+                    <h3>📜 Le Applicazioni</h3>
+                    <p><strong>(Il Menu)</strong><br>I piatti che puoi ordinare. Scrivere un documento è un primo, giocare è un dessert. Il menu definisce cosa il ristorante può offrirti.</p>
+                </div>
+                <div class="role-card">
+                    <h3>🕴️ Il Sistema Operativo</h3>
+                    <p><strong>(Il Direttore di Sala)</strong><br>Il coordinatore. Prende i tuoi ordini, gestisce lo stress in cucina e decide chi usa il forno per primo. Ti serve il piatto pronto senza farti sporcare le mani.</p>
+                </div>
+                <div class="role-card">
+                    <h3>🧑‍💻 L'Utente</h3>
+                    <p><strong>(Il Cliente)</strong><br>Sei tu. Ti siedi, ordini ciò che ti serve e ti godi il risultato senza doverti preoccupare di come funziona il gas o di affilare i coltelli.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="border-left: 4px solid var(--accent-zorin);">
+            <h2>Perché ci serve un Direttore?</h2>
+            <p>Senza il Sistema Operativo (Windows, macOS o Linux), il computer sarebbe solo un ammasso di plastica e metallo. L'OS è il ponte tra te e la macchina: traduce i tuoi desideri in impulsi elettronici che l'hardware può capire.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

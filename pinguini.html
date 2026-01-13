@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Segreta - Pinguini! 🐧</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .secret-container {
+            text-align: center;
+            padding: 100px 20px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .penguin-hero {
+            max-width: 600px;
+            border-radius: 30px;
+            box-shadow: 0 0 50px rgba(56, 189, 248, 0.4);
+            margin-bottom: 40px;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .back-button {
+            margin-top: 50px;
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            color: #020617;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .back-button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body style="background:radial-gradient(circle at center, #0f172a, #020617); overflow: hidden;">
+    <div class="secret-container">
+        <h1>Trovare un Pinguino è fortuna, <br> capire Linux è libertà! 🐧</h1>
+        <p class="subtitle">Hai trovato l'Area Segreta del Progetto Pinguini.</p>
+
+        <img src="penguin_party_illustration.png" alt="Penguin Party" class="penguin-hero">
+
+        <div style="font-size: 1.5rem; margin-top: 20px;">
+            ❄️ 🧊 🐧 🧊 ❄️
+        </div>
+
+        <a href="index.html" class="back-button">Torna al mondo reale</a>
+    </div>
+
+    <!-- Snowflakes script -->
+    <script>
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.innerHTML = '❄';
+            snowflake.style.position = 'fixed';
+            snowflake.style.top = '-20px';
+            snowflake.style.left = Math.random() * window.innerWidth + 'px';
+            snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+            snowflake.style.color = 'white';
+            snowflake.style.opacity = Math.random();
+            snowflake.style.zIndex = '1000';
+            snowflake.style.transition = 'transform 5s linear, opacity 5s linear';
+
+            document.body.appendChild(snowflake);
+
+            setTimeout(() => {
+                snowflake.style.transform = `translateY(${window.innerHeight + 50}px) rotate(${Math.random() * 360}deg)`;
+                snowflake.style.opacity = '0';
+            }, 100);
+
+            setTimeout(() => {
+                snowflake.remove();
+            }, 5100);
+        }
+
+        setInterval(createSnowflake, 200);
+    </script>
+</body>
+
+</html>
